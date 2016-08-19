@@ -45,7 +45,7 @@ class AuthorizeView(View):
                 if hook_resp:
                     return hook_resp
 
-                if settings.get('OIDC_SKIP_CONSENT_ALWAYS') and not (authorize.client.client_type == 'public') \
+                if settings.get('OIDC_SKIP_CONSENT_ALWAYS') \
                 and not (authorize.params.prompt == 'consent'):
                     return redirect(authorize.create_response_uri())
 
